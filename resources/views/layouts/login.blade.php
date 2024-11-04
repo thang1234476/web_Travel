@@ -8,7 +8,7 @@
     @Vite(['resources/css/style.css', 'resources/js/app.js'])
 </head>
 
-<body> 
+<body>
     <!-- <div class="col-9">
     @if (session('msg'))
             <div class="alert alert-danger">
@@ -80,10 +80,15 @@
         });
     </script>
     <script>
-    @if (session('msg'))
-        alert("{{ session('msg') }}");
+        @if (session('msg'))
+            alert("{{ session('msg') }}");
+        @endif
+    </script>
+    @if ($errors->any())
+        <script>
+            alert("{{ $errors->first() }}"); // Hiển thị thông báo lỗi đầu tiên
+        </script>
     @endif
-</script>
 </body>
 
 </html>
