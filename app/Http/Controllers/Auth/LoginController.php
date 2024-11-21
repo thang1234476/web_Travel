@@ -20,9 +20,17 @@ class LoginController extends Controller
             $urlRedirect="/";
             if($user->is_admin) {
                 $urlRedirect = "/admin";
+            } 
+            if($user->is_admin == false) {
+                $urlRedirect = "/home";
             }
             return redirect($urlRedirect);
         }
         return back()->with('msg', 'Email hoặc mật khẩu không chính xác')->withInput();
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/')->with('success', 'Đăng xuất thành công.');
     }
 }

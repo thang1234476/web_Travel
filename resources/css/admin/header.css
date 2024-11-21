@@ -1,0 +1,54 @@
+.header {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.header .user-info {
+    display: flex;
+    align-items: center;
+}
+.header .user-info span {
+    margin-right: 10px;
+}
+
+.user-info {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%; /* Hiển thị ngay dưới user-info */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.user-info:hover .dropdown {
+    display: block;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+@media (max-width: 768px) {
+    .header .user-info span {
+        margin-right: 10px;
+        display: block;
+    }
+}
