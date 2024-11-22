@@ -1,28 +1,43 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
-    public function showForm(){
+    public function showForm()
+    {
         return view('auth.login');
     }
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $email = $request->email;
         $password = $request->password;
         $status = Auth::attempt(['email' => $email, 'password' => $password]);
-        if($status) {
+        if ($status) {
             $user = Auth::user();
-            $urlRedirect="/";
-            if($user->is_admin) {
+            $urlRedirect = "/";
+            if ($user->is_admin) {
                 $urlRedirect = "/admin";
+            }
+            if ($user->is_admin == false) {
+                $urlRedirect = "/home";
             }
             return redirect($urlRedirect);
         }
         return back()->with('msg', 'Email hoặc mật khẩu không chính xác')->withInput();
+    }
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        // Xóa toàn bộ session
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/')->with('success', 'Đăng xuất thành công.');
     }
 }

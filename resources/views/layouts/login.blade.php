@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('tittle')</title>
     @Vite(['resources/css/style.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{asset('resources/css/style.css')}}" media="all">
 </head>
 
-<body> 
+<body>
     <!-- <div class="col-9">
     @if (session('msg'))
             <div class="alert alert-danger">
@@ -80,10 +81,15 @@
         });
     </script>
     <script>
-    @if (session('msg'))
-        alert("{{ session('msg') }}");
+        @if (session('msg'))
+            alert("{{ session('msg') }}");
+        @endif
+    </script>
+    @if ($errors->any())
+        <script>
+            alert("{{ $errors->first() }}"); // Hiển thị thông báo lỗi đầu tiên
+        </script>
     @endif
-</script>
 </body>
 
 </html>

@@ -17,10 +17,17 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table = 'users';
     protected $fillable = [
+        'id',
         'name',
         'email',
+        'phone',
         'password',
+        'is_admin',
+    ];
+    protected $casts = [
+        'is_admin' => 'boolean', // Chuyển đổi giá trị 'is_admin' thành boolean
     ];
 
     /**
