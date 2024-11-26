@@ -16,8 +16,8 @@
         <a class="nav-link" href="{{ route('list_booking') }}">
             <li class="hoa_don"><i class="fas fa-money-bill"></i><span> Xét duyệt hóa đơn</span></li>
         </a>
-        <a class="nav-link" href="{{ route('list_tour') }}">
+        <!-- <a class="nav-link" href="">
             <li class="danh_gia"><i class="fas fa-comment"></i><span> Đánh giá</span></li>
-        </a>
+        </a> -->
     </ul>
 </div>

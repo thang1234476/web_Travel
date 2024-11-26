@@ -25,6 +25,8 @@ class User extends Authenticatable
         'phone',
         'password',
         'is_admin',
+        'gender',
+        'adress'
     ];
     protected $casts = [
         'is_admin' => 'boolean', // Chuyển đổi giá trị 'is_admin' thành boolean
@@ -51,5 +53,9 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function datTours()
+    {
+        return $this->hasMany(dat_tour::class, 'user_id', 'id');
     }
 }

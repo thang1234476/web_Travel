@@ -36,11 +36,12 @@ class ToursController extends Controller
 
         // Tạo bản ghi mới
         $model = new TourDuLich();
-        $model->TenTour = $validatedData['TenTour'];
+        $model->ten_tour = $validatedData['TenTour'];
 
-        $path = $request->file('hinhanh')->store('tour', 'public');
-        $model->hinhanh = $path;
-
+        $file = $request->file('hinhanh');
+        $fileName = time() . '-' . $file->getClientOriginalName();
+        $path = $file->storeAs('tour', $fileName, 'public');
+        $model->hinh_anh = $path;
 
         $model->gia = $validatedData['gia'];
         $model->ngay_bat_dau = $validatedData['ngay_bat_dau'];
@@ -72,7 +73,7 @@ class ToursController extends Controller
         // Tìm và cập nhật dữ liệu
         $tour = TourDuLich::findOrFail($ma_tour);
 
-        $tour->TenTour = $request->input('TenTour');
+        $tour->ten_tour = $request->input('TenTour');
         $tour->gia = $request->input('gia');
         $tour->ngay_bat_dau = $request->input('ngay_bat_dau');
         $tour->ngay_ket_thuc = $request->input('ngay_ket_thuc');
@@ -83,12 +84,15 @@ class ToursController extends Controller
 
         if ($request->hasFile('hinhanh')) {
 
-            if ($tour->hinhanh) {
-                Storage::disk('public')->delete($tour->hinhanh);
+            if ($tour->hinh_anh) {
+                Storage::disk('public')->delete($tour->hinh_anh);
             }
 
-            $path = $request->file('hinhanh')->store('tour', 'public');
-            $tour->hinhanh = $path;
+            $file = $request->file('hinhanh');
+            $fileName = time() . '-' . $file->getClientOriginalName();
+            $path = $file->storeAs('tour', $fileName, 'public');
+            $tour->hinh_anh = $path;
+
         }
 
         $tour->save();
@@ -103,12 +107,11 @@ class ToursController extends Controller
         return view('admin.edit_tour', compact('tour'));
     }
 
-
     public function delete_tour($ma_tour)
     {
         $tour = TourDuLich::findOrFail($ma_tour);
-        if ($tour->hinhanh) {
-            Storage::disk('public')->delete($tour->hinhanh);
+        if ($tour->hinh_anh) {
+            Storage::disk('public')->delete($tour->hinh_anh);
         }
         $tour->delete();
         return redirect()->route('list_tour')->with('success', 'Tour đã được xóa thành công!');

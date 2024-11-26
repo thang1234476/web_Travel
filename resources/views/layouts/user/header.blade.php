@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Đặt Tour Đà Nẵng</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
 </head>
 <style>
   /* Cài đặt cho header */
@@ -111,89 +111,7 @@
     width: 100%;
   }
 
-  /* Cài đặt cho menu dropdown */
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    /* Hiển thị menu dropdown */
-  }
 
-  .dropdown-menu {
-    display: none;
-    /* Ẩn các dropdown menu ban đầu */
-    position: absolute;
-    top: 100%;
-    /* Đặt vị trí menu ngay dưới item cha */
-    left: 0;
-    background-color: white;
-    padding: 10px 0;
-    list-style: none;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    width: auto;
-  }
-
-  .dropdown-menu.active {
-    display: block;
-    /* Show when active */
-  }
-
-  .dropdown-menu li {
-    position: relative;
-  }
-
-  /* Cài đặt cho submenu */
-  .dropdown-menu .dropdown-menu {
-    display: none;
-    /* Ẩn submenu ban đầu */
-    position: absolute;
-    top: 0;
-    left: 100%;
-    /* Đặt sang bên phải item cha */
-    margin-left: 10px;
-    /* Khoảng cách giữa hai menu */
-  }
-
-  .dropdown-menu li:hover .dropdown-menu {
-    display: block;
-    /* Hiển thị submenu khi hover */
-  }
-
-
-  .dropdown-menu li a:hover {
-    background-color: gainsboro;
-  }
-
-  /* Cài đặt cho biểu tượng login */
-  .login-dropdown .dropdown-menu {
-    position: absolute;
-    /* Cho phép định vị chính xác */
-    top: 100%;
-    /* Đặt menu ngay dưới biểu tượng */
-    left: 50%;
-    /* Đặt điểm giữa của menu ở giữa icon */
-    transform: translateX(-50%);
-    /* Dịch chuyển menu để căn giữa hoàn toàn */
-    background-color: #fff;
-    /* Nền menu */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    /* Tạo bóng mờ */
-    list-style: none;
-    /* Xóa bullet list */
-    padding: 10px 0;
-    /* Tạo khoảng cách trên/dưới */
-    border-radius: 5px;
-    /* Bo góc menu */
-    display: none;
-    /* Ẩn menu mặc định */
-    z-index: 1000;
-    /* Đảm bảo menu hiển thị trên các thành phần khác */
-  }
-
-  .login-dropdown:hover .dropdown-menu {
-    display: block;
-    /* Hiển thị khi hover */
-  }
 
   /* Media Query cho mobile */
   @media (max-width: 768px) {
@@ -247,17 +165,88 @@
     margin: 3px 0;
     transition: all 0.3s ease;
   }
+  .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    background-color: transparent;
+    /* Nền trong suốt */
+    margin-right: 100px;
+  }
+
+  .menu li i{
+    margin: 0 10px;
+    padding: 20px;
+  }
 
   .login-dropdown .login-icon {
     font-size: 18px;
     padding: 8px 0;
+  }
+
+
+
+
+
+
+
+
+
+
+
+  /* Đặt kiểu cơ bản cho dropdown */
+  .login-dropdown {
+    position: relative;
+    /* Cần thiết để đặt ul theo li */
+    margin-right: 8%;
+  }
+
+  /* Ẩn menu mặc định */
+  .login-dropdown .dropdown-menu {
+    display: none;
+    /* Ẩn menu khi không hover */
+
+    top: 100%;
+    /* Đặt ngay dưới phần tử cha */
+    left: -50px;
+
+
+    height: 120px;
+  }
+
+  /* Hiển thị menu khi hover vào li */
+  .login-dropdown:hover .dropdown-menu {
+    display: block;
+    /* Hiển thị menu */
+  }
+
+  /* Hiệu ứng hover cho các mục */
+  .dropdown-item a,
+  .dropdown-item button {
+    display: block;
+    padding: 10px 16px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 14px;
+    border: none;
+    width: 130px;
+    font-weight: bold;
+    background-color: #f9f9f9;
+  }
+
+  /* Hover trên mục menu */
+  .dropdown-item a:hover,
+  .dropdown-item button:hover {
+    background-color: #007bff;
+    color: #fff;
   }
 </style>
 
 <body>
   <header>
     <div class="logo">
-      <a href="index.php"><img src="{{ asset('storage/header/logo.png') }}" alt="Logo"></a>
+      <a href=""><img src="{{ asset('storage/header/logo.png') }}" alt="Logo"></a>
     </div>
     <div class="menu-toggle" onclick="toggleMenu()">
       <span></span>
@@ -272,26 +261,31 @@
       <ul class="menu">
         <li><a href="{{Route('home')}}"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
         <li class="dropdown"><a href="{{Route('user.tour')}}"><i class="fa-solid fa-map"></i> Tours</a></li>
-        <li><a href="#"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
-        <li><a href="#"><i class="fa-solid fa-star"></i>Đánh giá</a></li>
-        <li><a href="#"><i class="fa-solid fa-info-circle"></i>Giới thiệu</a></li>
+        <li><a href="{{Route('user.location')}}"><i class="fa-solid fa-star"></i>Địa điểm</a></li>
+        <li><a href="{{Route('user.lienhe')}}"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+        <li><a href="{{Route('user.introduct')}}"><i class="fa-solid fa-info-circle"></i>Giới thiệu</a></li>
         <li class="dropdown login-dropdown" style="color:#FFFFFF">
-        <!-- <a href="#" class="login-icon"><i class="fa-solid fa-user"></i></a> -->
         <a class="login-icon">
-          <a>{{ Auth::user()->name }}</a>
-          <ul class="dropdown-menu">
-          <li style="width: 100%; padding: 0; margin: 0; height:100%">
-            <form action="{{ route('logout') }}" method="POST" style="width: 100%; margin: 0; height:100%">
-            @csrf
-            <button type="submit"
-              style="all: unset; cursor: pointer; font: inherit; background-color: red; width: 100%; height: 100%; text-align: center;">
-              Đăng Xuất
-            </button>
-            </form>
+        <i class="fa-solid fa-user-circle" style="font-size: 40px;"></i>
+      </a>
+        <ul class="dropdown-menu" style="width: 150px">
+          <li class="dropdown-item">
+          <a href="{{ route('user.profile', ['id' => Auth::user()->id]) }}">
+            Trang cá nhân
+          </a>
           </li>
-          </ul>
-        </a>
+          <li class="divider"></li>
+          <li class="dropdown-item">
+          <form action="{{ route('logout') }}" method="POST" style="margin: 0;">
+            @csrf
+            <button type="submit">
+            Đăng Xuất
+            </button>
+          </form>
+          </li>
+        </ul>
         </li>
+
       </ul>
 
 
@@ -299,13 +293,12 @@
     <ul class="menu">
       <li><a href="{{Route('common')}}"><i class="fa-solid fa-house"></i>Trang chủ</a></li>
       <li class="dropdown"><a href="{{Route('guest.tour')}}"><i class="fa-solid fa-map"></i> Tours</a></li>
-      <li><a href="#"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
-      <li><a href="#"><i class="fa-solid fa-star"></i>Đánh giá</a></li>
-      <li><a href="#"><i class="fa-solid fa-info-circle"></i>Giới thiệu</a></li>
+      <li><a href="{{Route('guest.location')}}"><i class="fa-solid fa-star"></i>Địa điểm</a></li>
+      <li><a href="{{Route('guest.lienhe')}}"><i class="fa-solid fa-phone"></i>Liên hệ</a></li>
+      <li><a href="{{Route('guest.introduct')}}"><i class="fa-solid fa-info-circle"></i>Giới thiệu</a></li>
       <li class="dropdown login-dropdown" style="color:#FFFFFF">
-      <!-- <a href="#" class="login-icon"><i class="fa-solid fa-user"></i></a> -->
       <a class="login-icon" href="{{ route('login') }}">
-        <img src="{{ asset('storage/header/user.png') }}" style="wight:auto;">
+        <i class="fa-solid fa-user-circle" style="font-size: 40px;"></i>
       </a>
       </li>
     </ul>

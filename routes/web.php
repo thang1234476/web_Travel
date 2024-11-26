@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\BookTourController;
+use App\Http\Controllers\User\IntroductController;
+use App\Http\Controllers\User\LienHeController;
+use App\Http\Controllers\User\LocationController;
 use App\Http\Controllers\User\TourController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
@@ -15,8 +20,16 @@ use App\Http\Controllers\Admin\ToursController;
 
 // Route mặc định cho trang home của người dùng, yêu cầu phải đăng nhập
 Route::get('/', [TourController::class, 'index'])->name('common');
-Route::get('/tour', [TourController::class, 'index'])->defaults('view', 'user.tour')->name('guest.tour');
 
+Route::get('/tour', [TourController::class, 'index'])->defaults('view', 'user.tour')->name('guest.tour');
+Route::get('/tour/{id}', [TourController::class, 'show'])->name('guest.tour.show');
+
+Route::get('/lienhe', [LienHeController::class, 'index'])->name('guest.lienhe');
+
+Route::get('/gioithieu', [IntroductController::class, 'index'])->name('guest.introduct');
+
+Route::get('/diadiem', [LocationController::class, 'index'])->name('guest.location');
+Route::get('/diadiem/{id}', [LocationController::class, 'show'])->name('guest.local.show');
 
 // Route::get('/', function () {
 //     return view('user.home');
@@ -24,6 +37,20 @@ Route::get('/tour', [TourController::class, 'index'])->defaults('view', 'user.to
 Route::group(['prefix' => 'home', 'middleware' => 'auth'], function () {
     Route::get('/', [TourController::class, 'index'])->name('home');
     Route::get('/tour', [TourController::class, 'index'])->defaults('view', 'user.tour')->name('user.tour');
+    Route::get('/tour/{id}', [TourController::class, 'show'])->name('user.tour.show');
+    Route::get('/lienhe', [LienHeController::class, 'index'])->name('user.lienhe');
+    Route::get('/gioithieu', [IntroductController::class, 'index'])->name('user.introduct');
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('user.profile');
+    Route::get('/edit_profile/{id}', [ProfileController::class, 'edit'])->name('edit.profile');
+    Route::put('/edit_profile/{id}', [ProfileController::class, 'update'])->name('edit.profile.put');
+
+    Route::get('/diadiem', [LocationController::class, 'index'])->name('user.location');
+    Route::get('/diadiem/{id}', [LocationController::class, 'show'])->name('user.local.show');
+
+    Route::get('/payment', [BookTourController::class, 'paymentPage'])->name('payment.page');
+    Route::post('/payment/process', [BookTourController::class, 'processPayment'])->name('payment.process');
+
 });
 
 // Route group cho các route yêu cầu quyền admin
@@ -31,25 +58,35 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin', 'namespace' => 
     // routes/web.php
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
+
+
+
     /* Account Routing */
     Route::get('/account', [AccountController::class, 'index'])->name('list_taikhoan');
     Route::get('/edit_account', [AccountController::class, 'show_edit_taikhoan'])->name('edit_taikhoan');
     Route::get('/edit_account/{id}', [AccountController::class, 'edit'])->name('edit_taikhoan');
     Route::put('/edit_account/{id}', [AccountController::class, 'update'])->name('edit_taikhoan_post');
     Route::delete('/delete_account/{id}', [AccountController::class, 'delete_account'])->name('delete_account');
+    Route::get('/search_accounts', [AccountController::class, 'search'])->name('search_accounts');
+
 
     /* Booking Tour Routing */
     Route::get('/bills', [BookingTourController::class, 'index'])->name('list_booking');
-    Route::get('/detail_booking', [BookingTourController::class, 'detail_booking'])->name('detail_booking');
+    Route::get('/bills/thanh_toan', [BookingTourController::class, 'thanh_toan'])->name('thanh_toan');
+    Route::post('/bills/duyet/{ma_dat_tour}', [BookingTourController::class, 'duyet'])->name('duyet');
     Route::delete('/delete_bill/{ma_dat_tour}', [BookingTourController::class, 'delete_bill'])->name('delete_bill');
+    Route::get('/bills/search', [BookingTourController::class, 'search'])->name('bills.search');
+
 
     /* Locations Routing */
     Route::get('/locations', [LocationsController::class, 'index'])->name('list_diadiem');
     Route::get('/add_locations', [LocationsController::class, 'show_add_diadiem'])->name('add_diadiem');
-    Route::post('/add_diadiem_post', [LocationsController::class, 'add_diadiem'])->name('add_diadiem_post');
+    Route::post('/add_diadiem_post', [LocationsController::class, 'store'])->name('add_diadiem_post');
     Route::get('/edit_location/{ma_dia_diem}', [LocationsController::class, 'edit'])->name('edit_diadiem');
     Route::put('/edit_location/{ma_dia_diem}', [LocationsController::class, 'update'])->name('edit_diadiem_post');
     Route::delete('/delete_locations/{ma_dia_diem}', [LocationsController::class, 'delete_locations'])->name('delete_locations');
+    Route::get('/search_locations', [LocationsController::class, 'search'])->name('search_locations');
+
 
     /* Tours Routing */
     Route::get('/tours', [ToursController::class, 'index'])->name('list_tour');
@@ -58,9 +95,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin', 'namespace' => 
     Route::get('/edit_tour/{ma_tour}', [ToursController::class, 'edit'])->name('edit_tour');
     Route::put('/edit_tour/{ma_tour}', [ToursController::class, 'update'])->name('edit_tour_post');
     Route::delete('/delete_tour/{ma_tour}', [ToursController::class, 'delete_tour'])->name('delete_tour');
-    Route::get('/search-tour', [ToursController::class, 'searchTours'])->name('search_tours');
+    Route::get('/search_tours', [ToursController::class, 'search'])->name('search_tours');
 
+
+    // BaiViet
+    
 });
+
+
+
 
 // Route cho trang login
 Route::get('/login', [LoginController::class, 'showForm'])->name('login');

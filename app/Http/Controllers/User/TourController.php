@@ -3,15 +3,48 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\TourDiaDiem;
 use App\Models\TourDuLich;
-
+use Illuminate\Http\Request;
 class TourController extends Controller
 {
     //
     public function index($view = 'user.home')
     {
+
         $tours = TourDuLich::all(); // Lấy tất cả các tour từ cơ sở dữ liệu
-        return view($view, compact('tours')); // Truyền $tours vào view
+
+        return view($view, compact('tours')); // Truyền $tours và $taikhoan vào view
     }
+    public function show($id)
+    {
+        $tour = TourDuLich::findOrFail($id);
+
+        if (!$tour) {
+            return redirect('/')->with('error', 'Tour không tồn tại!');
+        }
+
+        // Lấy danh sách địa điểm kèm hình ảnh
+        $diaDiems = $tour->diaDiems()->with([
+            'noiDungBaiViet' => function ($query) {
+                $query->select('bai_viet_id', 'mo_ta', 'du_lieu_noi_dung')->where('loai_noi_dung', 'image');
+            }
+        ])->get();
+
+
+        return view('user.tourShow', compact('tour', 'diaDiems'));
+    }
+    public function calculateTotal(Request $request)
+    {
+        $validated = $request->validate([
+            'tour_id' => 'required|exists:tours,id',
+            'quantity' => 'required|integer|min:1',
+        ]);
+
+        $tour = TourDuLich::find($validated['tour_id']);
+        $totalPrice = $tour->price * $validated['quantity'];
+
+        return response()->json(['total_price' => $totalPrice]);
+    }
+
 }

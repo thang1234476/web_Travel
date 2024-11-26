@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $user->phone = '0918517064';
         $user->is_admin = true;
         $user->password = bcrypt('123456');
+        $user->adress ='Thừa Thiên huế';
+        $user->gender = 'nu';
         $user->save();
 
         $user = new User;
@@ -27,6 +29,8 @@ class DatabaseSeeder extends Seeder
         $user->phone = '0918517064';
         $user->is_admin = false;
         $user->password = bcrypt('123456');
+        $user->adress ='Thừa Thiên huế';
+        $user->gender = 'nam';
         $user->save();
     }
 }

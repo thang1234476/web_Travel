@@ -169,19 +169,6 @@
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-google"></i></a>
             </div>
-            <h3>TẢI ỨNG DỤNG TRAVEL</h3>
-            <div class="app-links">
-            <a href="#"><img src="{{ asset('storage/footer/AppStore.webp') }}" width="150px"></a>
-            <a href="#"><img src="{{ asset('storage/footer/CHPlay.webp') }}" width="150px"></a>
-            </div>
-            <h3>PHƯƠNG THỨC THANH TOÁN</h3>
-            <div class="payment-icons">
-                <i class="fab fa-cc-visa"></i>
-                <i class="fab fa-cc-mastercard"></i>
-                <i class="fab fa-cc-jcb"></i>
-                <i class="fab fa-cc-apple-pay"></i>
-                <i class="fab fa-cc-amazon-pay"></i>
-            </div>
         </div>
     </div>
 </footer>

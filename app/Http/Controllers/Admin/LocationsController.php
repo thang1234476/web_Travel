@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\dia_diem;
+use App\Models\NoiDungBaiViet;
 use Illuminate\Http\Request;
 
 class LocationsController extends Controller
@@ -70,4 +71,69 @@ class LocationsController extends Controller
         $location->delete();
         return redirect()->route('list_diadiem')->with('success', 'Địa điểm đã được xóa thành công!');
     }
+    public function store(Request $request)
+    {
+        // Validate dữ liệu đầu vào
+        $validatedData = $request->validate([
+            'TenDD' => 'required|string|max:255',
+            'diachi' => 'required|string|max:255',
+            'hinhanh' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'mota' => 'required|string|max:1000',
+            'content_type' => 'required|array',
+            'content_name' => 'required|array',
+            'content_data' => 'required|array',
+            'content_file.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+
+        // Lưu hình ảnh chính
+        $coverImagePath = $request->file('hinhanh')->store('uploads', 'public');
+
+
+        // Tạo địa điểm mới
+        $model = new dia_diem();
+        $model->ten_dia_diem = $validatedData['TenDD'];
+        $model->lien_ket_ban_do = $validatedData['diachi'];
+        $model->hinh_anh = $coverImagePath;
+        $model->mo_ta = $validatedData['mota'];
+        $model->save(); // Lưu địa điểm vào cơ sở dữ liệu
+
+
+        // Lấy id của địa điểm mới tạo
+        $diaDiemId = $model->id; // Đây là cách lấy ID của địa điểm mới
+
+
+        // Lưu các khối nội dung
+        foreach ($validatedData['content_type'] as $index => $type) {
+            $contentData = null;
+            $contentFile = null;
+
+
+            // Nếu là văn bản
+            if ($type === 'text') {
+                $contentData = $validatedData['content_data'][$index];
+            }
+            // Nếu là hình ảnh, kiểm tra và lưu ảnh
+            if ($type === 'image' && isset($request->content_file[$index])) {
+                // Lưu file hình ảnh phụ nếu có
+                $contentFile = $request->file('content_file')[$index]->store('uploads', 'public');
+            }
+
+
+            // Tạo bản ghi cho từng khối nội dung
+            NoiDungBaiViet::create([
+                'dia_diem_id' => $diaDiemId, // Gắn kết với địa điểm
+                'loai_noi_dung' => $type, // Kiểu nội dung (text hoặc image)
+                'du_lieu_noi_dung' => $contentData, // Dữ liệu nội dung (văn bản)
+                'ten_noi_dung' => $validatedData['content_name'][$index], // Tên hoặc chú thích
+                'anh_phu' => $contentFile, // Hình ảnh phụ (nếu có)
+                'thu_tu_noi_dung' => $index, // Thứ tự của khối nội dung
+            ]);
+        }
+
+
+        // Trở lại và thông báo thành công
+        return redirect()->route('list_diadiem')->with('success', 'Dữ liệu đã được lưu thành công.');
+    }
+
 }

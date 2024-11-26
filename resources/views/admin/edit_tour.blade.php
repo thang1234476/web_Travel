@@ -18,7 +18,7 @@
         
         <div class="form-group">
             <label for="TenTour">Tên tour</label>
-            <input type="text" id="TenTour" name="TenTour" value="{{ old('TenTour', $tour->TenTour) }}" class="form-control">
+            <input type="text" id="TenTour" name="TenTour" value="{{ old('TenTour', $tour->ten_tour) }}" class="form-control">
             @error('TenTour')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -31,7 +31,7 @@
                 <span class="error">{{ $message }}</span>
             @enderror
             @if($tour->hinhanh)
-                <img src="{{ Storage::url($tour->hinhanh) }}" width="100" class="mt-2">
+                <img src="{{ Storage::url($tour->hinh_anh) }}" width="100" class="mt-2">
             @endif
         </div>
 

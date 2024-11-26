@@ -36,8 +36,8 @@
                     @foreach ($data as $item)
             <tr>
                 <td>{{ $item->ma_tour }}</td>
-                <td>{{ $item->TenTour }}</td>
-                <td><img src="{{ asset('storage/' . $item->hinhanh) }}" alt="Tour Image" style="width:40px"></td>
+                <td>{{ $item->ten_tour }}</td>
+                <td><img src="{{ asset('storage/' . $item->hinh_anh) }}" alt="Tour Image" style="width:40px"></td>
                 <td>{{ number_format($item->gia, 0, '', '.')}}</td>
                 <td>{{ $item->ngay_bat_dau }}</td>
                 <td>{{ $item->ngay_ket_thuc }}</td>

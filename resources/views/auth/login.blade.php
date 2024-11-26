@@ -6,6 +6,14 @@
     <br>
     <input type="text" placeholder="Người dùng" name="name" required>
     <input type="email" placeholder="Email" name="email" required>
+
+    <select id="gioitinh" name="gender" required>
+        <option value="" disabled selected hidden style="color:rgb(211, 211, 211)">Giới Tính</option>
+        <option value="nam">Nam</option>
+        <option value="nu">Nữ</option>
+    </select>
+
+    <input type="text" placeholder="Địa Chỉ" name="adress" required>
     <input type="tel" name="phone" placeholder="Số điện thoại" required pattern="[0-9]{10}" required />
     <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
     <input type="password" id="confirmPassword" name="password_confirmation" placeholder="Xác nhận mật khẩu?" required>

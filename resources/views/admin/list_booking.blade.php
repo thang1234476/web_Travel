@@ -10,8 +10,19 @@
     <div class="duyet">
         <h1>Xét duyệt hóa đơn</h1>
         <div class="buttons">
-            <button>Đã thanh toán</button>
-            <button>Chưa thanh toán</button>
+            <button
+                onclick="window.location='{{ route('thanh_toan', ['trang_thai_thanh_toan' => 'da_thanh_toan']) }}'">Đã
+                thanh
+                toán
+            </button>
+            <button
+                onclick="window.location='{{ route('thanh_toan', ['trang_thai_thanh_toan' => 'chua_thanh_toan']) }}'">Chưa
+                thanh
+                toán
+            </button>
+
+
+
         </div>
     </div>
     <div class="table-container">
@@ -33,31 +44,38 @@
             </thead>
             <tbody>
                 @foreach ($datTours as $datTour)
-        <tr>
-            <td>{{ $datTour->ma_dat_tour }}</td>
-          <td>{{ $datTour->user->name }}</td>
-          <td>{{ $datTour->tourDuLich->ten_tour }}</td>
-          <td>{{ $datTour->ngay_dat }}</td>
-          <td>{{ $datTour->so_nguoi }}</td>
-          <td>{{ $datTour->tong_tien }}</td>
-            <td>
-              @if ($datTour->trang_thai_thanh_toan == 0)
-                   Chưa xét duyệt
-               @else
-                   Đã xét duyệt
-               @endif
-            </td>
-            <td class="action-buttons">
-                <button class="view" onclick="window.location='{{ route('detail_booking') }}'">Duyệt</button>
-                <form action="{{ route('delete_bill', $datTour->ma_dat_tour) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="delete" type="submit" onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</button>
-                </form>
+                    <tr>
+                        <td>{{ $datTour->ma_dat_tour }}</td>
+                        <td>{{ $datTour->user->name }}</td>
+                        <td>{{ $datTour->tourDuLich->ten_tour }}</td>
+                        <td>{{ $datTour->ngay_dat }}</td>
+                        <td>{{ $datTour->so_nguoi }}</td>
+                        <td>{{ $datTour->tong_tien }}</td>
+                        <td>
+                            @if ($datTour->trang_thai_thanh_toan == 'chua_thanh_toan')
+                                Chưa xét duyệt
+                            @else
+                                Đã xét duyệt
+                            @endif
+                        </td>
+                        <td class="action-buttons">
+                        <form action="{{ route('duyet', $datTour->ma_dat_tour) }}" method="POST">
+                                    @csrf
+                                    <button class="view" type="submit">Duyệt</button>
+                                </form>
+                                <form action="{{ route('delete_bill', $datTour->ma_dat_tour) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="delete" type="submit"
+                                        onclick="return confirm('Bạn có chắc chắn muốn xóa?')">Xóa</button>
+                                </form>
 
-            </td>
-        </tr>
-        @endforeach
+
+
+
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

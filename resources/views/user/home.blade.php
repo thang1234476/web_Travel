@@ -1,15 +1,16 @@
 @section('tour-card')
-@foreach ($tours->random(4) as $item)
+@if(isset($tours) && $tours->count())
+@foreach ($tours->sortBy('gia')->take(4) as $item)
     <div class="deal-card1">
         <div class="position-relative">
-            <img src="{{ asset('storage/' . $item->hinhanh) }}" alt="{{ $item->TenTour }}">
+            <img src="{{ asset('storage/' . $item->hinh_anh) }}" alt="{{ $item->ten_tour }}">
         </div>
         <div class="deal-content1">
-            <h5 class="card-title">{{$item->TenTour}}</h5>
+            <h5 class="card-title">{{$item->ten_tour}}</h5>
             <p class="deal-info"><i class="bi bi-calendar"></i> {{$item->ngay_bat_dau}} / {{
             \Carbon\Carbon::parse($item->ngay_bat_dau)
                 ->diffInDays(\Carbon\Carbon::parse($item->ngay_ket_thuc))
-                                    }} ngày</p>
+                                            }} ngày</p>
             <p class="deal-info">
             <div class="div_card">
             </div>
@@ -17,12 +18,21 @@
             <p>
                 <span class="deal-price">{{ number_format($item->gia, 0, '', '.')}}đ</span>
             </p>
-            <a href="#" class="btn btn-primary btn-sm btn_card1">Xem chi tiết</a>
+            @if (Auth::check())
+                <a href="{{ route('user.tour.show', $item->ma_tour) }}" class="btn btn-primary btn-sm btn_card1">Xem chi
+                    tiết</a>
+            @else
+                <a href="{{ route('guest.tour.show', $item->ma_tour) }}" class="btn btn-primary btn-sm btn_card1">Xem chi
+                    tiết</a>
+            @endif
+
         </div>
     </div>
 @endforeach
+@else
+    <p>Không có tour nào để hiển thị.</p>
+@endif
 @endsection
-
 
 @include('layouts.user.header')
 @include('layouts.user.home')

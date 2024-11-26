@@ -4,10 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\TourDuLich;
 
-class sug_tour extends Controller
+class LienHeController extends Controller
 {
-
-
+    public function index() {
+        return view('user.lienhe');
+    }
 }

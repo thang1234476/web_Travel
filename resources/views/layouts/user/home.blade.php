@@ -114,85 +114,85 @@
   /*-------Search--------*/
 
   .search-container {
-            display: flex;
-            align-items: center;
-            border: 2px solid #007bff;
-            background: #fff;
-            padding: 15px;
-            width: 90%;
-            max-width: 1500px;
-            margin: 50px auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            height: 100px;
-        }
+    display: flex;
+    align-items: center;
+    border: 2px solid #007bff;
+    background: #fff;
+    padding: 15px;
+    width: 90%;
+    max-width: 1500px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: 100px;
+  }
 
-        .search-item {
-            position: relative;
-            display: flex;
-            align-items: center;
-            flex: 1;
-            margin-right: 15px;
-        }
+  .search-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    margin-right: 15px;
+  }
 
-        .search-item:last-child {
-            margin-right: 0;
-        }
+  .search-item:last-child {
+    margin-right: 0;
+  }
 
-        .search-icon {
-            position: absolute;
-            left: 10px;
-            color: #007bff;
-            font-size: 18px;
-        }
+  .search-icon {
+    position: absolute;
+    left: 10px;
+    color: #007bff;
+    font-size: 18px;
+  }
 
-        .search-input,
-        .search-select,
-        .search-date {
-            width: 100%;
-            padding: 10px 40px;
-            font-size: 18px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-            transition: border-color 0.3s;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border: 1px solid #007bff;
-            font-family: Faustina;
-        }
+  .search-input,
+  .search-select,
+  .search-date {
+    width: 100%;
+    padding: 10px 40px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #007bff;
+    font-family: Faustina;
+  }
 
-        .search-input:focus,
-        .search-select:focus,
-        .search-date:focus {
-            border-color: #007bff;
-        }
+  .search-input:focus,
+  .search-select:focus,
+  .search-date:focus {
+    border-color: #007bff;
+  }
 
-        .search-select {
-            appearance: none;
-            background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23007bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat;
-            background-position: calc(100% - 10px) center;
-            background-size: 16px;
-        }
+  .search-select {
+    appearance: none;
+    background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23007bff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat;
+    background-position: calc(100% - 10px) center;
+    background-size: 16px;
+  }
 
-        .search-button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
+  .search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
 
-        .search-button:hover {
-            background-color: #0056b3;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
+  .search-button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
 
-        .search-date {
-            cursor: pointer;
-        }
+  .search-date {
+    cursor: pointer;
+  }
 
   /* Section giới thiệu */
   body {
@@ -696,13 +696,15 @@
     color: #666;
     margin: 5px 0 0 0;
   }
-  .blog-link{
+
+  .blog-link {
     text-decoration: none;
     color: #666;
   }
-  .blog-link .h3:hover{
+
+  .blog-link .h3:hover {
     text-decoration: none;
-    color:gold;
+    color: gold;
   }
 
 
@@ -937,6 +939,7 @@
     color: #555;
     font-size: 0.9rem;
   }
+
   .card-title {
     font-size: 15px;
   }
@@ -944,14 +947,14 @@
   .btn_card1 {
     position: absolute;
     border-radius: 0px;
-    bottom: 5px; 
+    bottom: 5px;
     right: 5px;
     font-size: 15px;
     font-weight: bold;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: #1e88e5;
     display: inline-block;
-    padding: 10px 15px; 
+    padding: 10px 15px;
   }
 
   .deals-wrapper {
@@ -998,7 +1001,8 @@
   .giatot {
     margin-top: 10px;
   }
-  .subtitle1{
+
+  .subtitle1 {
     height: 20px;
   }
 </style>
@@ -1008,9 +1012,9 @@
   <!-- Slider Section -->
   <div class="slider">
     <div class="slides">
-      <img src="{{ asset('storage/./view_user/slider1.jpeg') }}" alt="Ảnh 1">
-      <img src="{{ asset('storage/./view_user/slider2.jpeg') }}" alt="Ảnh 2">
-      <img src="{{ asset('storage/./view_user/slider3.jpeg') }}" alt="Ảnh 3">
+      <img src="{{ asset('storage/./view_user/slider1.jpg') }}" alt="Ảnh 1">
+      <img src="{{ asset('storage/./view_user/slider2.jpg') }}" alt="Ảnh 2">
+      <img src="{{ asset('storage/./view_user/slider3.jpg') }}" alt="Ảnh 3">
     </div>
     <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
     <a class="next" onclick="changeSlide(1)">&#10095;</a>
@@ -1021,7 +1025,7 @@
     </div>
   </div>
 
-  
+
   <!-- </section>
   <form class="search-form">
     <div class="form-group">
@@ -1096,65 +1100,73 @@
 
   <!-- Search -->
   <div class="search-container">
-        <!-- Ô đầu tiên: Text input -->
-        <div class="search-item">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" class="search-input" placeholder="Bạn muốn đi đâu?">
-        </div>
-
-        <!-- Ô thứ 2: Dropdown chọn điểm đi -->
-        <div class="search-item">
-            <i class="fas fa-map-marker-alt search-icon"></i>
-            <select class="search-select">
-                <option value="" disabled selected>Chọn điểm đi</option>
-                <option value="ha-noi">Hà Nội</option>
-                <option value="ho-chi-minh">Hồ Chí Minh</option>
-                <option value="da-nang">Đà Nẵng</option>
-                <option value="can-tho">Cần Thơ</option>
-                <option value="nha-trang">Nha Trang</option>
-            </select>
-        </div>
-
-        <!-- Ô thứ 3: Dropdown chọn điểm đến -->
-        <div class="search-item">
-            <i class="fas fa-map-marker-alt search-icon"></i>
-            <select class="search-select">
-                <option value="" disabled selected>Chọn điểm đến</option>
-                <option value="ha-noi">Hà Nội</option>
-                <option value="ho-chi-minh">Hồ Chí Minh</option>
-                <option value="da-nang">Đà Nẵng</option>
-                <option value="can-tho">Cần Thơ</option>
-                <option value="nha-trang">Nha Trang</option>
-            </select>
-        </div>
-
-        <!-- Ô thứ 4: Date picker -->
-        <div class="search-item">
-            <input type="date" class="search-date" id="departure-date" min="2024-11-16">
-        </div>
-
-        <!-- Nút tìm kiếm -->
-        <button class="search-button">Tìm kiếm</button>
+    <!-- Ô đầu tiên: Text input -->
+    <div class="search-item">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" class="search-input" placeholder="Bạn muốn đi đâu?">
     </div>
 
-    <script>
-        // Tự động thiết lập giá trị "min" là ngày hôm nay + 1
-        const today = new Date();
-        const tomorrow = new Date(today);
-        tomorrow.setDate(today.getDate() + 1);
+    <!-- Ô thứ 2: Dropdown chọn điểm đi -->
+    <div class="search-item">
+      <i class="fas fa-map-marker-alt search-icon"></i>
+      <select class="search-select">
+        <option value="" disabled selected>Chọn điểm đi</option>
+        <option value="ha-noi">Hà Nội</option>
+        <option value="ho-chi-minh">Hồ Chí Minh</option>
+        <option value="da-nang">Đà Nẵng</option>
+        <option value="can-tho">Cần Thơ</option>
+        <option value="nha-trang">Nha Trang</option>
+      </select>
+    </div>
 
-        const formattedDate = tomorrow.toISOString().split('T')[0];
-        document.getElementById('departure-date').setAttribute('min', formattedDate);
-    </script>
+    <!-- Ô thứ 3: Dropdown chọn điểm đến -->
+    <div class="search-item">
+      <i class="fas fa-map-marker-alt search-icon"></i>
+      <select class="search-select">
+        <option value="" disabled selected>Chọn điểm đến</option>
+        <option value="ha-noi">Hà Nội</option>
+        <option value="ho-chi-minh">Hồ Chí Minh</option>
+        <option value="da-nang">Đà Nẵng</option>
+        <option value="can-tho">Cần Thơ</option>
+        <option value="nha-trang">Nha Trang</option>
+      </select>
+    </div>
+
+    <!-- Ô thứ 4: Date picker -->
+    <div class="search-item">
+      <input type="date" class="search-date" id="departure-date" min="2024-11-16">
+    </div>
+
+    <!-- Nút tìm kiếm -->
+    <button class="search-button">Tìm kiếm</button>
+  </div>
+
+  <script>
+    // Tự động thiết lập giá trị "min" là ngày hôm nay + 1
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    const formattedDate = tomorrow.toISOString().split('T')[0];
+    document.getElementById('departure-date').setAttribute('min', formattedDate);
+  </script>
 
 
   <!-- Tour Giá Tốt -->
   <div class="container mt-5 giatot">
     <div class="title-row1">
       <h2 class="header1">Tour Giá Tốt</h2>
-      <a href="tours.php" class="a_tour">
-        <p class="p_card">xem thêm tour<i class="bi bi-arrow-right"></i></p>
+
+      @if (Auth::check())
+      <a href="{{Route('user.tour')}}" class="a_tour">
+      <p class="p_card">xem thêm tour<i class="bi bi-arrow-right"></i></p>
       </a>
+
+    @else
+      <a href="{{Route('guest.tour')}}" class="a_tour">
+      <p class="p_card">xem thêm tour<i class="bi bi-arrow-right"></i></p>
+      </a>
+    @endif
     </div>
 
     <div class="deals-wrapper">
@@ -1166,80 +1178,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 
-
-  <!--Tour ưu đãi -->
-
-  <div class="header">Giá siêu ưu đãi có hạn</div>
-  <div class="subtitle">Tour giá rẻ bất ngờ</div>
-
-  <div class="deals-container">
-    <!-- Card 1 -->
-    <div class="deal-card" onclick="window.location.href='link-to-detail-page'">
-      <div class="deal-image">
-        <img src="{{ asset('storage/./Image/caurong.jpeg') }}" alt="Phú Quốc">
-        <div class="discount-tag">-50%</div>
-      </div>
-      <div class="deal-content">
-        <div class="deal-location">Khởi hành từ: Phú Quốc</div>
-        <div class="deal-title">Du Lịch 4 Đảo Phú Quốc: Hành Trình 1 ngày</div>
-        <div class="stars">★★★★★</div>
-        <div class="price">
-          1.000.000đ <span class="old-price">2.000.000đ</span>
-        </div>
-        <div class="duration">Thời gian: 1N</div>
-      </div>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="deal-card" onclick="window.location.href='link-to-detail-page'">
-      <div class="deal-image">
-        <img src="{{ asset('storage/./Image/nguhanhson.jpg') }}" alt="Đà Nẵng">
-        <div class="discount-tag">-29%</div>
-      </div>
-      <div class="deal-content">
-        <div class="deal-location">Khởi hành từ: Đà Nẵng</div>
-        <div class="deal-title">Đà Nẵng - Sơn Trà - Cù Lao Chàm - Hội An - Bà Nà 3N2Đ</div>
-        <div class="stars">★★★★★</div>
-        <div class="price">
-          2.500.000đ <span class="old-price">3.500.000đ</span>
-        </div>
-        <div class="duration">Thời gian: 3N2Đ</div>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="deal-card" onclick="window.location.href='link-to-detail-page'">
-      <div class="deal-image">
-        <img src="{{ asset('storage/./Image/caurong.jpeg') }}" alt="Nha Trang">
-        <div class="discount-tag">-22%</div>
-      </div>
-      <div class="deal-content">
-        <div class="deal-location">Khởi hành từ: HCM</div>
-        <div class="deal-title">Nha Trang: Vườn Nho - Đồng Cừu - Hang Rái 4N3Đ</div>
-        <div class="stars">★★★★★</div>
-        <div class="price">
-          3.500.000đ <span class="old-price">4.500.000đ</span>
-        </div>
-        <div class="duration">Thời gian: 4N3Đ</div>
-      </div>
-    </div>
-
-    <div class="deal-card" onclick="window.location.href='link-to-detail-page'">
-      <div class="deal-image">
-        <img src="{{ asset('storage/./Image/nguhanhson.jpg') }}" alt="Đà Nẵng">
-        <div class="discount-tag">-29%</div>
-      </div>
-      <div class="deal-content">
-        <div class="deal-location">Khởi hành từ: Đà Nẵng</div>
-        <div class="deal-title">Đà Nẵng - Sơn Trà - Cù Lao Chàm - Hội An - Bà Nà 3N2Đ</div>
-        <div class="stars">★★★★★</div>
-        <div class="price">
-          2.500.000đ <span class="old-price">3.500.000đ</span>
-        </div>
-        <div class="duration">Thời gian: 3N2Đ</div>
-      </div>
-    </div>
-  </div>
 
   <!-- Famous Locations -->
   <section class="diem-den">
@@ -1299,106 +1237,6 @@
   </section>
 
 
-  <!-- Blog and Video Section -->
-  <div class="container11">
-    <!-- Tiêu đề -->
-    <div class="header1">Trải nghiệm du lịch</div>
-    <div class="subtitle1"></div>
-    <!-- Bố cục blog -->
-    <div class="grid">
-      <!-- Blog 1 -->
-      <div class="blog-item">
-        <img src="{{ asset('storage/./Image/monan.jpg') }}" alt="Image 1">
-        <div class="blog-content">
-          <a class="blog-link" href="#"><h3>Ba món ngon phải thử khi đến du lịch Đà Nẵng</h3></a>
-          <p>Sunday, 25/02/2018</p>
-        </div>
-      </div>
-
-      <!-- Blog 2 -->
-      <div class="blog-item">
-        <img src="{{ asset('storage/./Image/trainghiem.jpg') }}" alt="Image 2">
-        <div class="blog-content">
-        <a class="blog-link" href="#"><h3>Trải nghiệm Đà Nẵng - Thành phố đáng sống năng động, đáng sống bậc nhất</h3></a>
-          <p>Sunday, 25/02/2018</p>
-        </div>
-      </div>
-
-      <!-- Blog 3 -->
-      <div class="blog-item">
-        <img src="{{ asset('storage/./Image/luu-y.jpg') }}" alt="Image 3">
-        <div class="blog-content">
-        <a class="blog-link" href="#"><h3>Cẩm nang du lịch - Những điều lưu ý khi đến với Đà Nẵng</h3></a>
-          <p>Sunday, 25/02/2018</p>
-        </div>
-      </div>
-
-      <!-- Blog 4 -->
-      <div class="blog-item">
-        <img src="{{ asset('storage/./Image/diadiem.jpg') }}" alt="Image 4">
-        <div class="blog-content">
-        <a class="blog-link" href="#"><h3>Cẩm nang du lịch - Những địa điểm đáng để thử khi đến Đà Nẵng</h3></a>
-          <p>Sunday, 25/02/2018</p>
-        </div>
-      </div>
-
-      <!-- Blog 5 -->
-      <div class="blog-item">
-        <img src="{{ asset('storage/./Image/bienmykhe.jpg') }}" alt="Image 5">
-        <div class="blog-content">
-        <a class="blog-link" href="#"><h3>Cầm nang du lịch - Những bãi biển đẹp nổi tiếng</h3></a>
-          <p>Sunday, 25/02/2018</p>
-        </div>
-      </div>
-
-      <!-- Blog 6 -->
-      <div class="blog-item">
-        <img src="{{ asset('storage/./Image/danang.jpg') }}" alt="Image 6">
-        <div class="blog-content">
-        <a class="blog-link" href="#"><h3>Góc giải mã - Đà Nẵng!</h3></a>
-          <p>Sunday, 25/02/2018</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Khách Hàng Yêu Thích -->
-  <section class="reviews-section">
-    <h2>Khách hàng nói gì về chúng tôi</h2>
-    <p>Chúng tôi vinh hạnh vì đã có cơ hội đồng hành với hơn 10.000 khách hàng trên khắp thế giới</p>
-
-    <div class="review-container">
-      <button class="prev-btn" onclick="prevReview()">&#10094;</button>
-
-      <div class="reviews">
-        <!-- Review 1 -->
-        <div class="review active">
-          <p>"Dịch vụ rất tuyệt vời. Mình đã có một chuyến đi cực kì đáng nhớ. DA NANG TOURS đã hỗ trợ rất nhanh khi gặp vấn đề và mình rất đánh giá cao chăm sóc khách hàng. Rất may mắn khi lựa chọn DA NANG TOURS cho chuyến đi lần này."</p>
-          <div class="rating">⭐⭐⭐⭐⭐</div>
-          <img src="{{ asset('storage/./Image/bao.jpg') }}" alt="Đoàn Nguyên Bảo">
-          <h3>Đoàn Nguyên Bảo</h3>
-        </div>
-
-        <!-- Review 2 -->
-        <div class="review">
-          <p>"Dịch vụ rất tuyệt vời. Mình đã có một chuyến đi cực kì đáng nhớ. DA NANG TOURS đã hỗ trợ rất nhanh khi gặp vấn đề và mình rất đánh giá cao chăm sóc khách hàng. Rất may mắn khi lựa chọn DA NANG TOURS cho chuyến đi lần này."</p>
-          <div class="rating">⭐⭐⭐⭐⭐</div>
-          <img src="{{ asset('storage/./Image/thang.jpg') }}" alt="Duy Thăng">
-          <h3>Duy Thăng</h3>
-        </div>
-
-        <!-- Review 3 -->
-        <div class="review">
-          <p>"Dịch vụ rất tuyệt vời. Mình đã có một chuyến đi cực kì đáng nhớ. DA NANG TOURS đã hỗ trợ rất nhanh khi gặp vấn đề và mình rất đánh giá cao chăm sóc khách hàng. Rất may mắn khi lựa chọn DA NANG TOURS cho chuyến đi lần này."</p>
-          <div class="rating">⭐⭐⭐⭐⭐</div>
-          <img src="{{ asset('storage/./Image/huy.jpg') }}" alt="Huy Vương">
-          <h3>Huy Vương</h3>
-        </div>
-      </div>
-
-      <button class="next-btn" onclick="nextReview()">&#10095;</button>
-    </div>
-  </section>
 
   <!-- Footer -->
 
