@@ -1,4 +1,12 @@
 *
 !private/
 !public/
+!storage/
 !.gitignore
+
+# Ignore trong storage
+storage/*.key
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
