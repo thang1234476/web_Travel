@@ -93,6 +93,22 @@
     .location-link:hover {
         color: #007acc;
     }
+
+    /* Định dạng tên địa điểm */
+    .location-card a {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .location-card a:hover {
+        color: #007acc;
+        transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out;
+    }
 </style>
 
 <section id="banner-location">
@@ -107,7 +123,7 @@
     <h2>Những Địa Danh Nổi Tiếng</h2>
     <div class="location-container">
         @yield('location-card')
-        
+
     </div>
 </section>
 @endsection

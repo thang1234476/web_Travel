@@ -58,9 +58,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin', 'namespace' => 
     // routes/web.php
     Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
-
-
-
     /* Account Routing */
     Route::get('/account', [AccountController::class, 'index'])->name('list_taikhoan');
     Route::get('/edit_account', [AccountController::class, 'show_edit_taikhoan'])->name('edit_taikhoan');

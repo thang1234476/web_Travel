@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
 
 class LoginController extends Controller
 {
@@ -12,29 +12,41 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+
     public function login(Request $request)
     {
-        $email = $request->email;
-        $password = $request->password;
-        $status = Auth::attempt(['email' => $email, 'password' => $password]);
-        if ($status) {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+
+        $credentials = $request->only(['email', 'password']);
+        if (Auth::attempt($credentials)) {
             $user = Auth::user();
-            $urlRedirect = "/";
-            if ($user->is_admin) {
-                $urlRedirect = "/admin";
-            }
-            if ($user->is_admin == false) {
-                $urlRedirect = "/home";
-            }
-            return redirect($urlRedirect);
+
+            // Lưu thông tin vào session
+            session([
+                'user_id' => $user->id,
+                'user_name' => $user->name,
+                'user_email' => $user->email,
+                'is_admin' => $user->is_admin, // true: admin, false: user
+            ]);
+
+            $urlRedirect = $user->is_admin ? '/admin' : '/home';
+            return redirect($urlRedirect)->with('success', 'Đăng nhập thành công!');
         }
-        return back()->with('msg', 'Email hoặc mật khẩu không chính xác')->withInput();
+
+        return back()->withErrors([
+            'email' => 'Email hoặc mật khẩu không chính xác.',
+        ])->withInput();
     }
+
     public function logout(Request $request)
     {
+        // Xóa toàn bộ session và trạng thái đăng nhập
+        session()->flush();
         Auth::logout();
 
-        // Xóa toàn bộ session
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 

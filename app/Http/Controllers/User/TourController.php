@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\dia_diem;
 use App\Models\TourDiaDiem;
 use App\Models\TourDuLich;
 use Illuminate\Http\Request;
@@ -11,10 +12,11 @@ class TourController extends Controller
     //
     public function index($view = 'user.home')
     {
-
+        
         $tours = TourDuLich::all(); // Lấy tất cả các tour từ cơ sở dữ liệu
+        $location = dia_diem::all();
 
-        return view($view, compact('tours')); // Truyền $tours và $taikhoan vào view
+        return view($view, compact('tours', 'location')); // Truyền $tours và $taikhoan vào view
     }
     public function show($id)
     {

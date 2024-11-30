@@ -1,17 +1,14 @@
 @extends('layouts.user.location')
 @section('location-card')
-@foreach ($location as $local)
+@foreach ($location as $local) <!-- Chỉ hiển thị 4 địa điểm -->
     <div class="location-card">
         <img src="{{ asset('storage/' . $local->hinh_anh) }}" alt="{{ $local->ten_dia_diem }}">
         @auth
-            <!-- Người dùng đã đăng nhập -->
             <a href="{{ route('user.local.show', $local->id) }}">
                 {{ $local->ten_dia_diem }}
             </a>
-
         @else
-            <!-- Người dùng chưa đăng nhập -->
-            <a href="{{ route('user.local.show', $local->id) }}">
+            <a href="{{ route('guest.local.show', $local->id) }}">
                 {{ $local->ten_dia_diem }}
             </a>
         @endauth

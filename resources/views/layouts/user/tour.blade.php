@@ -346,21 +346,41 @@ button:hover {
             <h3>Chọn mức giá</h3>
             <label><input type="checkbox" class="price-filter" data-min="0" data-max="1000000"> Giá dưới
                 1.000.000đ</label>
-            <label><input type="checkbox" class="price-filter" data-min="1000000" data-max="3000000"> 1.000.000đ -
-                3.000.000đ</label>
-            <label><input type="checkbox" class="price-filter" data-min="3000000" data-max="5000000"> 3.000.000đ -
-                5.000.000đ</label>
-            <label><input type="checkbox" class="price-filter" data-min="5000000" data-max="7000000"> 5.000.000đ -
-                7.000.000đ</label>
-            <label><input type="checkbox" class="price-filter" data-min="7000000" data-max="9000000"> 7.000.000đ -
-                9.000.000đ</label>
+            <label><input type="checkbox" class="price-filter" data-min="1000000" data-max="3000000"> 1.000.000đ - 3.000.000đ</label>
+            <label><input type="checkbox" class="price-filter" data-min="3000000" data-max="5000000"> 3.000.000đ - 5.000.000đ</label>
+            <label><input type="checkbox" class="price-filter" data-min="5000000" data-max="7000000"> 5.000.000đ - 7.000.000đ</label>
+            <label><input type="checkbox" class="price-filter" data-min="7000000" data-max="9000000"> 7.000.000đ - 9.000.000đ</label>
             <label><input type="checkbox" class="price-filter" data-min="9000000"> Giá trên 9.000.000đ</label>
         </div>
-        <div class="filter-group">
-            <h3>Điểm khởi hành</h3>
-            <label><input type="checkbox"> Hà Nội</label>
-            <label><input type="checkbox"> TP Hồ Chí Minh</label>
-            <label><input type="checkbox"> Huế</label>
+    </div>
+
+    <!-- Offcanvas Sidebar (for smaller screens) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasSidebar" aria-labelledby="offcanvasSidebarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasSidebarLabel">Danh mục</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h3 class="section-title" onclick="toggleSection('domestic_mobile')">Điểm đến yêu thích</h3>
+            <ul id="domestic_mobile" class="tour-items">
+                <li>Cầu Rồng</li>
+                <li>Biển Mỹ Khê</li>
+                <li>Bà Nà Hill</li>
+            </ul>
+            <h3 class="section-title" onclick="toggleSection('international_mobile')">Trải Nghiệm Du Lịch</h3>
+            <ul id="international_mobile" class="tour-items">
+                <li>Khám phá ẩm thực</li>
+                <li>Cẩm nang du lịch</li>
+                <li>Lưu ý</li>
+            </ul>
+            <h3>Chọn mức giá</h3>
+            <label><input type="checkbox" class="price-filter" data-min="0" data-max="1000000"> Giá dưới
+                1.000.000đ</label>
+            <label><input type="checkbox" class="price-filter" data-min="1000000" data-max="3000000"> 1.000.000đ - 3.000.000đ</label>
+            <label><input type="checkbox" class="price-filter" data-min="3000000" data-max="5000000"> 3.000.000đ - 5.000.000đ</label>
+            <label><input type="checkbox" class="price-filter" data-min="5000000" data-max="7000000"> 5.000.000đ - 7.000.000đ</label>
+            <label><input type="checkbox" class="price-filter" data-min="7000000" data-max="9000000"> 7.000.000đ - 9.000.000đ</label>
+            <label><input type="checkbox" class="price-filter" data-min="9000000"> Giá trên 9.000.000đ</label>
         </div>
     </div>
 

@@ -194,6 +194,70 @@
     cursor: pointer;
   }
 
+  /* Responsive styling */
+  @media screen and (max-width: 1200px) {
+    .search-container {
+      flex-wrap: wrap;
+      height: auto;
+      /* Adjust height for wrap */
+    }
+
+    .search-item {
+      margin-bottom: 15px;
+      margin-right: 0;
+      flex: 1 1 100%;
+      /* Full width on smaller screens */
+    }
+
+    .search-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .search-button {
+      width: 100%;
+      /* Full-width button for small screens */
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .search-container {
+      padding: 10px;
+      /* Reduce padding */
+      box-shadow: none;
+      /* Simplify shadows */
+    }
+
+    .search-input,
+    .search-select,
+    .search-date {
+      font-size: 16px;
+      /* Adjust font size */
+      padding: 8px 35px;
+      /* Reduce padding */
+    }
+
+    .search-button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .search-container {
+      border: 1px solid #007bff;
+      /* Simplify border */
+    }
+
+    .search-input,
+    .search-select,
+    .search-date {
+      padding: 8px 30px;
+      /* Adjust padding for very small screens */
+      font-size: 14px;
+      /* Reduce font size */
+    }
+  }
+
   /* Section giới thiệu */
   body {
     font-family: Arial, sans-serif;
@@ -303,6 +367,69 @@
     color: #555;
     font-size: 0.95rem;
   }
+
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .features {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .steps {
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .feature {
+      max-width: 100%;
+    }
+
+    .step {
+      max-width: 100%;
+    }
+
+    .feature img,
+    .step img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .feature h3,
+    .step h3 {
+      font-size: 1rem;
+    }
+
+    .feature p,
+    .step p {
+      font-size: 0.9rem;
+    }
+
+    .step-number {
+      width: 35px;
+      height: 35px;
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    section {
+      padding: 20px;
+    }
+
+    .why-choose h2,
+    .booking-steps h2 {
+      font-size: 1.5rem;
+    }
+
+    .features {
+      gap: 20px;
+    }
+
+    .steps {
+      gap: 20px;
+    }
+  }
+
 
   /*--Tour ưu đãi */
 
@@ -526,7 +653,7 @@
   }
 
   .btn:hover {
-    background-color: rgb(203, 111, 0);
+    background-color: #0056b3;
   }
 
   /* Section Địa Danh Nổi Tiếng */
@@ -1159,14 +1286,14 @@
 
       @if (Auth::check())
       <a href="{{Route('user.tour')}}" class="a_tour">
-      <p class="p_card">xem thêm tour<i class="bi bi-arrow-right"></i></p>
+        <p class="p_card">xem thêm tour<i class="bi bi-arrow-right"></i></p>
       </a>
 
-    @else
+      @else
       <a href="{{Route('guest.tour')}}" class="a_tour">
-      <p class="p_card">xem thêm tour<i class="bi bi-arrow-right"></i></p>
+        <p class="p_card">xem thêm tour<i class="bi bi-arrow-right"></i></p>
       </a>
-    @endif
+      @endif
     </div>
 
     <div class="deals-wrapper">
@@ -1183,56 +1310,8 @@
   <section class="diem-den">
     <div class="header">Điểm đến ưa thích</div>
     <div class="hang-card">
-      <!-- Card 1 -->
-      <div class="card">
-        <img src="{{ asset('storage/./Image/bienmykhe.jpg') }}" alt="Nam Mỹ">
-        <div class="noi-dung">
-          <p class="ten-dia-diem"><i class="bi bi-geo-alt"></i> &nbsp Biển Mỹ Khê</p>
-          <a class="a_diemden" href="#">
-            <p class="chi-tiet">Xem chi tiết<i class="bi bi-caret-right-fill"></i></p>
-          </a>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="card">
-        <img src="{{ asset('storage/./Image/bana.jpg') }}" alt="Châu Âu">
-        <div class="noi-dung">
-          <p class="ten-dia-diem"><i class="bi bi-geo-alt"></i> &nbsp Bà Nà Hill</p>
-          <a class="a_diemden" href="#">
-            <p class="chi-tiet">Xem chi tiết<i class="bi bi-caret-right-fill"></i></p>
-          </a>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="card">
-        <img src="{{ asset('storage/./Image/caurong.jpeg') }}" alt="Châu Á">
-        <div class="noi-dung">
-          <p class="ten-dia-diem"><i class="bi bi-geo-alt"></i> &nbsp Cầu Rồng</p>
-          <a class="a_diemden" href="#">
-            <p class="chi-tiet">Xem chi tiết<i class="bi bi-caret-right-fill"></i></p>
-          </a>
-        </div>
-      </div>
-      <!-- Card 4 -->
-      <div class="card">
-        <img src="{{ asset('storage/./Image/nguhanhson.jpg') }}" alt="Bắc Mỹ">
-        <div class="noi-dung">
-          <p class="ten-dia-diem"><i class="bi bi-geo-alt"></i> &nbsp Ngũ Hành Sơn</p>
-          <a class="a_diemden" href="#">
-            <p class="chi-tiet">Xem chi tiết<i class="bi bi-caret-right-fill"></i></p>
-          </a>
-        </div>
-      </div>
-      <!-- Card 5 -->
-      <div class="card">
-        <img src="{{ asset('storage/./Image/sontra.jpeg') }}" alt="Châu Phi">
-        <div class="noi-dung">
-          <p class="ten-dia-diem"><i class="bi bi-geo-alt"></i> &nbsp Sơn Trà</p>
-          <a class="a_diemden" href="#">
-            <p class="chi-tiet">Xem chi tiết<i class="bi bi-caret-right-fill"></i></p>
-          </a>
-        </div>
-      </div>
+      @yield('card')
+      
     </div>
   </section>
 

@@ -43,7 +43,7 @@
 
     h2,
     h3 {
-        color: darkorange;
+        color: #007bff;
         margin-bottom: 20px;
     }
 
@@ -100,13 +100,13 @@
 
     .order-item .price {
         font-weight: bold;
-        color: darkorange;
+        color: #007bff;
     }
 
     .apply-btn {
         width: 100%;
         padding: 10px;
-        background-color: darkorange;
+        background-color: #007bff;
         color: #fff;
         border: none;
         border-radius: 4px;
@@ -115,7 +115,7 @@
     }
 
     .apply-btn:hover {
-        background-color: rgb(203, 111, 0);
+        background-color: #0056b3;
     }
 
     .order-summary-details p {
@@ -131,7 +131,7 @@
 
     .back-link {
         display: inline-block;
-        color: darkorange;
+        color: #007bff;
         margin: 20px 0;
         text-decoration: none;
     }
@@ -143,7 +143,7 @@
     .place-order-btn {
         width: 100%;
         padding: 15px;
-        background-color: darkorange;
+        background-color: #007bff;
         color: #fff;
         border: none;
         border-radius: 4px;
@@ -152,7 +152,7 @@
     }
 
     .place-order-btn:hover {
-        background-color: rgb(203, 111, 0);
+        background-color: #0056b3;
     }
 </style>
 

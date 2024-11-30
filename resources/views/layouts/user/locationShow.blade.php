@@ -22,6 +22,7 @@
         justify-content: center;
         color: white;
         text-align: center;
+        overflow: hidden;
     }
 
     .main-location img {
@@ -34,13 +35,30 @@
         z-index: -1;
     }
 
-    .location-content h2 {
-        font-size: 36px;
+    .main-location h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 48px;
         font-weight: bold;
-        background-color: rgba(0, 0, 0, 0.5);
-        padding: 10px 20px;
-        border-radius: 5px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        /* Nền đen mờ */
+        padding: 20px 30px;
+        border-radius: 8px;
+        z-index: 1;
+        text-align: center;
+        white-space: nowrap;
     }
+
+    .mo-ta {
+        margin: 5px 18%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
 
     /* Content container */
     .content-container {
