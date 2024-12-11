@@ -1227,45 +1227,7 @@
 
   <!-- Search -->
   <div class="search-container">
-    <!-- Ô đầu tiên: Text input -->
-    <div class="search-item">
-      <i class="fas fa-search search-icon"></i>
-      <input type="text" class="search-input" placeholder="Bạn muốn đi đâu?">
-    </div>
-
-    <!-- Ô thứ 2: Dropdown chọn điểm đi -->
-    <div class="search-item">
-      <i class="fas fa-map-marker-alt search-icon"></i>
-      <select class="search-select">
-        <option value="" disabled selected>Chọn điểm đi</option>
-        <option value="ha-noi">Hà Nội</option>
-        <option value="ho-chi-minh">Hồ Chí Minh</option>
-        <option value="da-nang">Đà Nẵng</option>
-        <option value="can-tho">Cần Thơ</option>
-        <option value="nha-trang">Nha Trang</option>
-      </select>
-    </div>
-
-    <!-- Ô thứ 3: Dropdown chọn điểm đến -->
-    <div class="search-item">
-      <i class="fas fa-map-marker-alt search-icon"></i>
-      <select class="search-select">
-        <option value="" disabled selected>Chọn điểm đến</option>
-        <option value="ha-noi">Hà Nội</option>
-        <option value="ho-chi-minh">Hồ Chí Minh</option>
-        <option value="da-nang">Đà Nẵng</option>
-        <option value="can-tho">Cần Thơ</option>
-        <option value="nha-trang">Nha Trang</option>
-      </select>
-    </div>
-
-    <!-- Ô thứ 4: Date picker -->
-    <div class="search-item">
-      <input type="date" class="search-date" id="departure-date" min="2024-11-16">
-    </div>
-
-    <!-- Nút tìm kiếm -->
-    <button class="search-button">Tìm kiếm</button>
+    @yield('search-container')
   </div>
 
   <script>

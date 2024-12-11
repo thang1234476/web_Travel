@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\BookTourController;
@@ -66,6 +67,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth.admin', 'namespace' => 
     Route::delete('/delete_account/{id}', [AccountController::class, 'delete_account'])->name('delete_account');
     Route::get('/search_accounts', [AccountController::class, 'search'])->name('search_accounts');
 
+    /* Blog Routing */
+    // Route::get('/blog', [BlogController::class, 'index'])->name('list_baiviet');
+    // Route::get('/add_blog', [BlogController::class, 'show_add_baiviet'])->name('add_baiviet');
+    // Route::post('/add_blog_post', [BlogController::class, 'store'])->name('add_baiviet_post');
+    // Route::get('/edit_blog/{ma_dia_diem}', [BlogController::class, 'edit'])->name('edit_baiviet');
+    // Route::put('/edit_blog/{ma_dia_diem}', [BlogController::class, 'update'])->name('edit_baiviet_post');
+    // Route::delete('/delete_blog/{ma_dia_diem}', [BlogController::class, 'delete_blog'])->name('delete_blog');
+    // Route::get('/search_blog', [BlogController::class, 'search'])->name('search_locations');
 
     /* Booking Tour Routing */
     Route::get('/bills', [BookingTourController::class, 'index'])->name('list_booking');

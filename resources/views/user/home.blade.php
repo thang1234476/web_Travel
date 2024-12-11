@@ -10,7 +10,7 @@
                 <p class="deal-info"><i class="bi bi-calendar"></i> {{$item->ngay_bat_dau}} / {{
                     \Carbon\Carbon::parse($item->ngay_bat_dau)
                         ->diffInDays(\Carbon\Carbon::parse($item->ngay_ket_thuc))
-                                                                    }} ngày</p>
+                                                                            }} ngày</p>
                 <p class="deal-info">
                 <div class="div_card">
                 </div>
@@ -54,17 +54,45 @@
                             <p class="chi-tiet">Xem chi tiết<i class="bi bi-caret-right-fill"></i></p>
                         </a>
                     @endauth
-                    
+
                 </a>
             </div>
-            </div>
+        </div>
     @endforeach
 @else
     <p>Không có địa điểm nào để hiển thị.</p>
 @endif
-    @endsection
+@endsection
 
-    @include('layouts.user.header')
-    @include('layouts.user.home')
-    @include('layouts.user.footer')
+@section('search-container')
+<!-- Ô đầu tiên: Text input -->
+<div class="search-item">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" name="wantPlace" class="search-input" placeholder="Bạn muốn đi đâu?">
+</div>
+
+<!-- Ô thứ 2: Dropdown chọn điểm đi -->
+<div class="search-item">
+    <i class="fas fa-map-marker-alt search-icon"></i>
+    <input type="text" name="wantPlace" class="search-input" placeholder="Chọn điểm khởi hành">
+</div>
+
+<!-- Ô thứ 3: Dropdown chọn điểm đến -->
+<div class="search-item">
+    <i class="fas fa-user-alt search-icon"></i>
+    <input type="number" class="search-input" placeholder="Chọn số người đi" min="1">
+</div>
+
+<!-- Ô thứ 4: Date picker -->
+<div class="search-item">
+    <input type="date" class="search-date" id="departure-date" min="2024-11-16">
+</div>
+
+<!-- Nút tìm kiếm -->
+<button class="search-button">Tìm kiếm</button>
+@endsection
+
+@include('layouts.user.header')
+@include('layouts.user.home')
+@include('layouts.user.footer')
 

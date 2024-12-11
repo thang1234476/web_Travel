@@ -22,7 +22,7 @@
                         <th>Tên Địa điểm</th>
                         <th>Mô tả</th>
                         <th>Ảnh</th>
-                        <th>Đia chỉ</th>
+                        <th>Địa chỉ</th>
                         <th>#</th>
                     </tr>
                 </thead>
